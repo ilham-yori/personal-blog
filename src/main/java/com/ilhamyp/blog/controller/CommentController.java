@@ -2,6 +2,7 @@ package com.ilhamyp.blog.controller;
 
 import com.ilhamyp.blog.entity.Comment;
 import com.ilhamyp.blog.request.comment.CreateCommentRequest;
+import com.ilhamyp.blog.request.comment.GetCommentByIdRequest;
 import com.ilhamyp.blog.request.comment.GetCommentRequest;
 import com.ilhamyp.blog.response.comment.CreateCommentResponse;
 import com.ilhamyp.blog.response.comment.GetCommentResponse;
@@ -33,8 +34,9 @@ public class CommentController {
     }
 
     @GetMapping("/{id}")
-    public Comment getComment(@PathVariable Integer id){
-        return commentService.getComment(id);
+    public GetCommentResponse getComment(@PathVariable Integer id){
+        GetCommentByIdRequest request = GetCommentByIdRequest.builder().id(id).build();
+        return commentService.getComment(request);
     }
 
     @PostMapping

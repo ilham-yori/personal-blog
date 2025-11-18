@@ -7,6 +7,7 @@ import com.ilhamyp.blog.mapper.CommentMapper;
 import com.ilhamyp.blog.repository.CommentRepository;
 import com.ilhamyp.blog.repository.PostRepository;
 import com.ilhamyp.blog.request.comment.CreateCommentRequest;
+import com.ilhamyp.blog.request.comment.GetCommentByIdRequest;
 import com.ilhamyp.blog.request.comment.GetCommentRequest;
 import com.ilhamyp.blog.response.comment.CreateCommentResponse;
 import com.ilhamyp.blog.response.comment.GetCommentResponse;
@@ -39,8 +40,10 @@ public class CommentService {
         return responses;
     }
 
-    public Comment getComment(Integer id){
-        return commentRepository.findById(id).orElse(null);
+    public GetCommentResponse getComment(GetCommentByIdRequest request){
+        Comment comment = commentRepository.findById(request.getId())
+                .orElseThrow(()-> new ApiException("Not Found", HttpStatus.NOT_FOUND));
+        return CommentMapper.INSTANCE.mapToGetCommentResponse(comment);
     }
 
     @Transactional
