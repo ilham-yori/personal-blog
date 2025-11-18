@@ -26,7 +26,7 @@ The project is also intended as a learning exercise to enhance my proficiency wi
 
    ```bash
    git clone git@github.com:ilham-yori/personal-blog.git
-   cd fastcampus-blog
+   cd blog
    ```
 
 2. **Run MySQL**:
