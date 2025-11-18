@@ -25,7 +25,7 @@ The project is also intended as a learning exercise to enhance my proficiency wi
 1. **Clone the Repository**:
 
    ```bash
-   git clone git@github.com:ganiszulfa/fastcampus-blog.git
+   git clone git@github.com:ilham-yori/personal-blog.git
    cd fastcampus-blog
    ```
 
